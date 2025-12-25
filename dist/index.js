@@ -154,7 +154,7 @@ app.use((req, res, next) => {
   });
   next();
 });
-(async () => {
+var setupApp = async () => {
   const server = await registerRoutes(app);
   app.use((err, _req, res, _next) => {
     const status = err.status || err.statusCode || 500;
@@ -167,12 +167,22 @@ app.use((req, res, next) => {
   } else {
     serveStatic(app);
   }
-  const port = parseInt(process.env.PORT || "3001", 10);
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: false
-  }, () => {
-    log(`serving on port ${port}`);
-  });
-})();
+  return server;
+};
+if (!process.env.VERCEL) {
+  (async () => {
+    const server = await setupApp();
+    const port = parseInt(process.env.PORT || "3001", 10);
+    server.listen({
+      port,
+      host: "0.0.0.0",
+      reusePort: false
+    }, () => {
+      log(`serving on port ${port}`);
+    });
+  })();
+}
+var index_default = app;
+export {
+  index_default as default
+};
