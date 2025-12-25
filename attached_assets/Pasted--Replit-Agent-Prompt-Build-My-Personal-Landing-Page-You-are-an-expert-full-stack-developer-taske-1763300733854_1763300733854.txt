@@ -1,0 +1,197 @@
+✅ Replit Agent Prompt — Build My Personal Landing Page
+
+You are an expert full-stack developer tasked with creating a modern, clean, and high-performance personal landing page for a JavaScript Developer & Automation Engineer. Follow ALL instructions carefully.
+
+🎯 Project Goal
+
+Create a personal portfolio landing page that showcases the subject as a:
+
+JavaScript Developer
+
+Python Automation Engineer
+
+3D & Web App Developer
+
+The landing page must communicate skills, experience, projects, and a strong call-to-action for potential clients.
+
+📌 Tech Requirements
+
+Use the following stack:
+
+TypeScript
+
+React + Vite
+
+Tailwind CSS
+
+Shadcn UI components
+
+Framer Motion (smooth animations)
+
+Lucide Icons
+
+Three.js (optional 3D hero object or background effect)
+
+The design must be:
+
+Fast
+
+Responsive
+
+Minimalist
+
+Friendly and modern
+
+With great spacing and typography
+
+📂 Project Structure Requirements
+
+The agent must generate:
+
+/src/components folder
+
+Header
+
+Hero
+
+About
+
+Services
+
+Skills
+
+Projects
+
+Contact CTA
+
+Footer
+
+App.tsx integrating all sections
+
+Tailwind config
+
+Shadcn UI setup
+
+Mobile-first responsive layout
+
+🎨 Design Instructions
+
+Soft gradients, subtle glows
+
+Rounded corners (rounded-2xl)
+
+Depth with shadows
+
+Framer Motion transitions on scroll
+
+Animated hover states
+
+Crisp typography (Tailwind: text-4xl, text-xl, etc.)
+
+Hero section should feel alive, with either:
+
+A floating 3D object, OR
+
+A simple animated background grid/particles
+
+🧑‍💻 Content (Use EXACTLY this wording)
+Hero Section
+
+Title: “JavaScript Developer • Automation Engineer • 3D Web Creator”
+
+Subtitle: “I build fast, modern web experiences and intelligent automation tools.”
+
+CTA button: “Hire Me”
+
+Secondary CTA: “View Projects”
+
+About Section (Use this copy)
+Hi! I’m Kelechi — a JavaScript Developer, Python Automation Engineer, and 3D/Web App Builder with 4 years of hands-on experience helping SMEs, founders, and teams bring digital ideas to life.
+
+I specialize in building fast, modern, and interactive web applications, automating repetitive workflows, and creating lightweight 3D experiences for the web.
+
+I’ve delivered SME tools, automated file management processes, built handyman marketplace systems, and crafted responsive UIs for startups and small businesses. I love turning ideas into real, functional, polished products.
+
+Services Section
+
+Create 4 service cards:
+
+Web App Development (React + TypeScript)
+“Modern, responsive, clean UIs built for performance and business goals.”
+
+Automation & Python Scripting
+“Eliminate repetitive tasks, integrate APIs, and streamline operations.”
+
+JavaScript Development
+“High-quality frontend logic, interactive components, and optimization.”
+
+3D Web Experiences
+“Three.js powered visuals and interactive scenes for modern websites.”
+
+Skills Section
+
+Include badge-style skills:
+
+JavaScript
+
+TypeScript
+
+React
+
+Next.js
+
+Python
+
+FastAPI
+
+Tailwind CSS
+
+Vite
+
+Three.js
+
+Git
+
+Figma
+
+API Integrations
+
+Projects Section (3 items)
+
+Each card must include:
+
+SME Operations Tool
+“A suite of tools used to automate daily SME operations and data workflows.”
+
+File Management Automation Script
+“Python-based automation that reduced hours of manual work to minutes.”
+
+Handyman Marketplace App
+“A clean, fast service marketplace built with modern UI components.”
+
+Call-to-Action Section
+Ready to build something fast, modern, and efficient?  
+Let’s turn your idea into a working product.
+
+
+Button: Contact Me
+
+Footer
+
+Copyright + quick links.
+
+⚙️ Additional Instructions for Replit Agent
+
+Ensure all components are clean and reusable.
+
+Apply Tailwind utility classes for layout and spacing.
+
+Animate sections on scroll with Framer Motion.
+
+Ensure perfect mobile responsiveness.
+
+Use Shadcn UI for all cards and buttons.
+
+Do NOT skip folder structure.
+
+Produce the full working codebase.
