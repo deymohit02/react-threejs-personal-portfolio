@@ -59,7 +59,7 @@ export default function Canvas3D() {
         <OrbitControls
           enableZoom={false}
           autoRotate
-          autoRotateSpeed={0.75}
+          autoRotateSpeed={2}
         />
 
         {/* 3D Model */}

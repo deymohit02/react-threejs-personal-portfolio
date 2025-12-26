@@ -263,7 +263,7 @@ function SkillsCarousel({
 }: {
   onSelect: (skill: typeof skills[number]) => void;
 }) {
-  const shouldReduceMotion = Boolean(useReducedMotion());
+  const shouldReduceMotion = false; // Force animations to always run
   const containerRef = useRef<HTMLDivElement>(null);
   const [totalWidth, setTotalWidth] = useState(0);
   const [cardWidth, setCardWidth] = useState(BASE_CARD_WIDTH);
@@ -301,7 +301,7 @@ function SkillsCarousel({
 
   // Custom animation loop for precise speed control
   useAnimationFrame((t, delta) => {
-    if (totalWidth === 0 || shouldReduceMotion) return;
+    if (totalWidth === 0) return;
 
     if (!isPaused) {
       // Move left by (SPEED * delta_seconds)
