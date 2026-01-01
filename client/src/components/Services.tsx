@@ -69,7 +69,7 @@ export default function Services() {
   const [activeTitle, setActiveTitle] = useState<string | null>(null);
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id="services" className="relative py-32 overflow-hidden scroll-mt-20">
       <Background />
 
       <div className="relative z-10 max-w-3xl mx-auto px-6">
