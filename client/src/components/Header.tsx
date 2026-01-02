@@ -72,7 +72,7 @@ export default function Header() {
                 e.preventDefault();
                 scrollToSection("#home");
               }}
-              className="text-xl md:text-2xl font-bold"
+              className="text-xl md:text-2xl font-bold font-lobster"
               data-testid="link-logo"
             >
               Mohit Kumar Dey
