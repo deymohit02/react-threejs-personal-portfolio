@@ -44,7 +44,7 @@ export default function About() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/images/kelechi.png')",
+          backgroundImage: "url('/images/about_mohit.png')",
           backgroundAttachment: "fixed",
         }}
       />
