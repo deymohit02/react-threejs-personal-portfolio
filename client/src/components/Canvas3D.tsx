@@ -1,10 +1,19 @@
 // Canvas3D.tsx
-import { Suspense, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
+import { Suspense, useEffect, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Environment, PresentationControls, useGLTF, useAnimations } from "@react-three/drei";
 import * as THREE from "three";
 
 function Model() {
+  const meshRef = useRef<THREE.Group>(null);
+
+  // Rotating the model frame by frame
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += delta * 0.5;
+    }
+  });
+
   // Load GLB model with animations
   const { scene, animations } = useGLTF("/models/obot.glb");
   const { actions } = useAnimations(animations, scene);
@@ -33,9 +42,10 @@ function Model() {
 
   return (
     <primitive
+      ref={meshRef}
       object={scene}
-      scale={9}              // Adjust size
-      position={[0, -1, 0]}  // Slightly lower
+      scale={6}              // Smaller size
+      position={[0, -1, 0]}  // Center locally
       rotation={[0, Math.PI / 4, 0]} // Initial rotation
     />
   );
@@ -55,15 +65,16 @@ export default function Canvas3D() {
         {/* HDRI Lighting */}
         {/*<Environment files="/environment/citrus_orchard_puresky_1k.hdr" background />*/}
 
-        {/* User controls */}
-        <OrbitControls
-          enableZoom={false}
-          autoRotate
-          autoRotateSpeed={2}
-        />
-
-        {/* 3D Model */}
-        <Model />
+        {/* User controls for model only */}
+        <group position={[4, 0, 0]}>
+          <PresentationControls
+            global
+            config={{ mass: 1, tension: 170, friction: 26 }} // Default-ish spring settings for responsiveness
+            rotation={[0, 0, 0]}
+          >
+            <Model />
+          </PresentationControls>
+        </group>
 
         {/* Scene Lighting */}
         <directionalLight
