@@ -49,50 +49,52 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative min-h-screen flex flex-col items-center bg-black justify-start scroll-mt-20"
+      className="relative min-h-screen flex items-center justify-start bg-black scroll-mt-20 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5 -z-10" />
 
-      {/* 3D Canvas */}
-      <div className="w-full max-w-7xl h-80 md:h-96 mt-4 md:mt-16">
-        <Canvas3D />
+      {/* 3D Model (Background Layer - Full Screen) */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <div className="w-full h-full">
+          <Canvas3D />
+        </div>
+
+        {/* Interaction Hint */}
+        <motion.div
+          className="absolute bottom-10 md:bottom-20 right-10 md:right-20 flex items-center gap-2 text-xs text-white/60 select-none z-20"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+        >
+          <motion.span
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          >
+            Drag to rotate drone
+          </motion.span>
+
+          <motion.div
+            className="flex items-center"
+            animate={{ x: [-6, 6, -6] }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.6,
+              ease: "easeInOut",
+            }}
+          >
+            <ArrowLeftRight className="h-3 w-3" />
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* Interaction Hint */}
-      <motion.div
-        className="mt-2 flex items-center gap-2 text-xs text-white/60 select-none"
-        initial={{ opacity: 0, y: -4 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-      >
-        <motion.span
-          animate={{ opacity: [0.4, 1, 0.4] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        >
-          Drag to rotate drone
-        </motion.span>
-
-        <motion.div
-          className="flex items-center"
-          animate={{ x: [-6, 6, -6] }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.6,
-            ease: "easeInOut",
-          }}
-        >
-          <ArrowLeftRight className="h-3 w-3" />
-        </motion.div>
-      </motion.div>
-
-      {/* Hero Text */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-12 text-center">
+      {/* Hero Text (Left Side - Foreground) */}
+      <div className="w-full md:w-[60%] px-4 md:px-12 py-12 flex flex-col items-center md:items-start text-center md:text-left z-10 relative pointer-events-none">
         {/* Name and Title */}
         <motion.div
-          className="mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 w-full pointer-events-auto"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
@@ -103,16 +105,17 @@ export default function Hero() {
           </p>
         </motion.div>
 
-        <div className="h-[60px] md:h-[80px] flex items-start justify-center">
+        <div className="h-[60px] md:h-[80px] flex items-start justify-center md:justify-start w-full pointer-events-auto">
           <TypingText
             text={`Building scalable systems and \n delivering exceptional software solutions.`}
             speed={100}
+            delay={600}
             onComplete={handleTypingComplete}
           />
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 items-center">
+        <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full justify-center md:justify-start pointer-events-auto">
           <Button
             size="lg"
             className={`w-auto min-w-[160px] inline-flex items-center justify-center gap-2
