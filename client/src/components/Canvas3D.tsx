@@ -1,5 +1,5 @@
 // Canvas3D.tsx
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, PresentationControls, useGLTF, useAnimations } from "@react-three/drei";
 import * as THREE from "three";
@@ -54,7 +54,23 @@ function Model() {
 // Preload the GLB globally for faster loading
 useGLTF.preload("/models/obot.glb");
 
+
 export default function Canvas3D() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Centered on mobile, shifted right on desktop
+  const modelPosition: [number, number, number] = isMobile ? [0, 0, 0] : [4, 0, 0];
+
   return (
     <Canvas
       shadows
@@ -66,7 +82,7 @@ export default function Canvas3D() {
         {/*<Environment files="/environment/citrus_orchard_puresky_1k.hdr" background />*/}
 
         {/* User controls for model only */}
-        <group position={[4, 0, 0]}>
+        <group position={modelPosition}>
           <PresentationControls
             global
             config={{ mass: 1, tension: 170, friction: 26 }} // Default-ish spring settings for responsiveness
