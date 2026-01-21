@@ -49,20 +49,20 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-start bg-black scroll-mt-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col md:flex-row items-center justify-start bg-black scroll-mt-20 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5 -z-10" />
 
-      {/* 3D Model (Background Layer - Full Screen) */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      {/* 3D Model - Stacked on Mobile, Background Layer on Desktop */}
+      <div className="relative w-full h-[50vh] md:absolute md:inset-0 md:h-full z-0 order-1 md:order-none">
         <div className="w-full h-full">
           <Canvas3D />
         </div>
 
         {/* Interaction Hint */}
         <motion.div
-          className="absolute bottom-10 md:bottom-20 right-10 md:right-20 flex items-center gap-2 text-xs text-white/60 select-none z-20"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-20 md:right-20 md:left-auto md:translate-x-0 flex items-center gap-2 text-xs text-white/60 select-none z-20"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
@@ -88,8 +88,8 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Hero Text (Left Side - Foreground) */}
-      <div className="w-full md:w-[60%] px-4 md:px-12 py-12 flex flex-col items-center md:items-start text-center md:text-left z-10 relative pointer-events-none">
+      {/* Hero Text - Below Model on Mobile, Left Side on Desktop */}
+      <div className="w-full md:w-[60%] px-4 md:px-12 py-12 flex flex-col items-center md:items-start text-center md:text-left z-10 relative order-2 md:order-none md:pointer-events-none">
         {/* Name and Title */}
         <motion.div
           className="mb-6 w-full pointer-events-auto"
