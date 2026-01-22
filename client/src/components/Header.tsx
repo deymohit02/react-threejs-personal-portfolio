@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { Button } from "@/components/ui/button";
@@ -18,16 +18,17 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  /* 
-  // Blocking overflow causes scroll issues with Lenis
-  // We disable this effect to ensure scrolling is never blocked by the menu state.
+  // Prevent background scrolling when menu is open
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isMenuOpen]);
-  */
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
@@ -137,7 +138,7 @@ export default function Header() {
             onClick={() => setIsMenuOpen(false)}
           >
             <motion.div
-              className="absolute inset-x-0 top-0 bg-background/98 backdrop-blur-2xl shadow-lg"
+              className="absolute inset-0 bg-background/98 backdrop-blur-2xl shadow-lg"
               initial={{ y: "-100%" }}
               animate={{ y: 0, transition: { duration: 0.35, ease: "easeInOut" } }}
               exit={{ y: "-100%", transition: { duration: 0.25, ease: "easeInOut" } }}
