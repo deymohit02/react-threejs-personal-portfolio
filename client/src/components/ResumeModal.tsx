@@ -19,7 +19,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 // In a production environment, you'd need a backend API to list files
                 // For now, we'll use a direct path since there's only one file
                 // The file name from the directory listing
-                const fileName = "MOHIT KUMAR DEY_AEI_AIA+FS.pdf";
+                const fileName = "Mohit_Kumar_Dey_Resume.pdf";
                 const url = `/resume/${fileName}`;
 
                 setResumeUrl(url);
