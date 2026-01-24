@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, ArrowLeftRight } from "lucide-react";
+import { ArrowRight, Download, ArrowLeftRight, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import Canvas3D from "./Canvas3D";
 import TypingText from "./TypingText";
 import { ScrollLockManager } from "@/lib/scrollLockManager";
+import ResumeModal from "./ResumeModal";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [showButtonAnimations, setShowButtonAnimations] = useState(false);
+  const [showResumeModal, setShowResumeModal] = useState(false);
 
   // Lock scroll on Hero section entry
   useEffect(() => {
@@ -108,7 +110,7 @@ export default function Hero() {
         <div className="h-[60px] md:h-[80px] flex items-start justify-center md:justify-start w-full pointer-events-auto">
           <TypingText
             text={`Building scalable systems and \n delivering exceptional software solutions.`}
-            speed={100}
+            speed={50}
             delay={600}
             onComplete={handleTypingComplete}
           />
@@ -136,6 +138,23 @@ export default function Hero() {
             size="lg"
             variant="outline"
             className={`w-auto min-w-[160px] inline-flex items-center justify-center gap-2
+              bg-purple-400/70 hover:bg-purple-400/80
+              backdrop-blur-md border border-purple-300/30
+              shadow-[0_0_20px_rgba(168,85,247,0.25)]
+              hover:shadow-[0_0_30px_rgba(168,85,247,0.45)]
+              transition-all duration-300
+              ${showButtonAnimations ? "hero-button-resume" : "opacity-0"}
+            `}
+            onClick={() => setShowResumeModal(true)}
+          >
+            Resume
+            <FileText className="h-5 w-5" />
+          </Button>
+
+          <Button
+            size="lg"
+            variant="outline"
+            className={`w-auto min-w-[160px] inline-flex items-center justify-center gap-2
               bg-pink-400/70 hover:bg-pink-400/80
               backdrop-blur-md border border-pink-300/30
               shadow-[0_0_20px_rgba(236,72,153,0.25)]
@@ -150,6 +169,9 @@ export default function Hero() {
           </Button>
         </div>
       </div>
+
+      {/* Resume Modal */}
+      <ResumeModal isOpen={showResumeModal} onClose={() => setShowResumeModal(false)} />
     </section>
   );
 }
