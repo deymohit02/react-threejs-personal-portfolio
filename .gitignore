@@ -1,1 +1,32 @@
+# Dependencies
 node_modules
+
+# Build output
+dist
+
+# 3D Models - manually created assets
+client/public/models/
+*.glb
+*.gltf
+*.fbx
+*.obj
+*.blend
+
+# Videos - manually created assets
+client/public/videos/
+*.mp4
+*.webm
+*.mov
+*.avi
+
+# Images - manually created assets
+client/public/images/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+
+# Keep favicon
+!client/public/favicon.png
