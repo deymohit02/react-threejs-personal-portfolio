@@ -28,8 +28,8 @@ client/public/images/
 *.webp
 *.svg
 
-# Resume files - keep private
-client/public/resume/
-
 # Keep favicon
 !client/public/favicon.png
+
+# IMPORTANT: Resume is NOT in gitignore so it can be deployed
+# The resume at client/public/resume/ WILL be committed to Git
