@@ -110,7 +110,7 @@ export default function Hero() {
         <div className="h-[60px] md:h-[80px] flex items-start justify-center md:justify-start w-full pointer-events-auto">
           <TypingText
             text={`Building scalable systems and \n delivering exceptional software solutions.`}
-            speed={50}
+            speed={30}
             delay={600}
             onComplete={handleTypingComplete}
           />
