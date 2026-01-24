@@ -28,5 +28,8 @@ client/public/images/
 *.webp
 *.svg
 
+# Resume files - keep private
+client/public/resume/
+
 # Keep favicon
 !client/public/favicon.png
