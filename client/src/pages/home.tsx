@@ -6,21 +6,21 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer"; 
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <FullPage>
       {/*<Section id="home">*/}
-        <Header/>
-        <Hero />
-        <About />
-        <Services />
-        <Skills />
-        <Projects />
-        <CTA />
-        <Footer />
+      <Header />
+      <Hero />
+      <About />
+      <Services />
+      <Skills />
+      <Projects />
+      <Contact />
+      <Footer />
       {/*</Section>*/}
 
       {/*
