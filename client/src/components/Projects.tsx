@@ -29,7 +29,7 @@ const projects = [
     challenges:
       "The main challenge was creating a flexible system that could adapt to different business workflows while maintaining performance with large datasets. Solved by implementing efficient data caching strategies and modular architecture.",
     github: "https://github.com/deymohit02/crypto-market-tracker",
-    live: "https://crypto-market-tracker-production.up.railway.app/",
+    live: "https://crypto-market-tracker.onrender.com/",
   },
   {
     title: "Olipop Full Stack Website",
